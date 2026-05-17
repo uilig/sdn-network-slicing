@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# LaTeX source (solo il PDF compilato viene pubblicato)
+documentazione/
+
+# Tracce e materiale del corso
+Tracce_Progetto/
+
+# Note private di lavoro
+X Andrea/
+
+# File di configurazione locale di Claude Code
+.claude/
+
+# Capture pcap (file binari)
+pcap/
+test_results/pcap/
+*.pcap
+
+# File temporanei macOS
+.!*
