@@ -1,0 +1,79 @@
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /home/user/Progetto_NCIS/SDN_Network_Slicing/service_slicing_controller.py
+loading app ryu.controller.ofp_handler
+instantiating app /home/user/Progetto_NCIS/SDN_Network_Slicing/service_slicing_controller.py of ServiceSlicingController
+==============================================
+  Service Slicing Controller - SDN Network Slicing
+==============================================
+Controller inizializzato con successo.
+Traffico VIDEO (UDP 9999) -> Link PREMIUM
+Traffico NORMALE          -> Link STANDARD
+instantiating app ryu.controller.ofp_handler of OFPHandler
+----------------------------------------------
+Switch S4 connesso al controller
+----------------------------------------------
+  [S4] Regola table-miss installata (priority=0)
+  [S4] Regole ARP installate (no flood, no premium)
+  [S4] Regola drop IPv6 installata (priority=5)
+  [S4] Installazione regole di instradamento...
+  [S4] eth_dst=00:00:00:00:00:02 -> porta 1 (ritorno a S1)
+  [S4] VIDEO (UDP 9999) eth_dst=00:00:00:00:00:04 -> porta 3 (PREMIUM link verso S6, priority=200)
+  [S4] DEFAULT eth_dst=00:00:00:00:00:04 -> porta 2 (STANDARD via S5, priority=100)
+  [S4] Configurazione completata con successo.
+----------------------------------------------
+Switch S5 connesso al controller
+----------------------------------------------
+  [S5] Regola table-miss installata (priority=0)
+  [S5] Regole ARP installate (no flood, no premium)
+  [S5] Regola drop IPv6 installata (priority=5)
+  [S5] Installazione regole di instradamento...
+  [S5] in_port=1 (da S4) -> porta 2 (verso S6)
+  [S5] in_port=2 (da S6) -> porta 1 (verso S4)
+  [S5] Configurazione completata con successo.
+----------------------------------------------
+Switch S6 connesso al controller
+----------------------------------------------
+  [S6] Regola table-miss installata (priority=0)
+  [S6] Regole ARP installate (no flood, no premium)
+  [S6] Regola drop IPv6 installata (priority=5)
+  [S6] Installazione regole di instradamento...
+  [S6] eth_dst=00:00:00:00:00:03 -> porta 3 (consegna a H3)
+  [S6] eth_dst=00:00:00:00:00:04 -> porta 6 (consegna a H4)
+  [S6] VIDEO (UDP 9999) eth_dst=00:00:00:00:00:01 -> porta 2 (PREMIUM upper verso S2, priority=200)
+  [S6] DEFAULT eth_dst=00:00:00:00:00:01 -> porta 1 (STANDARD upper via S3, priority=100)
+  [S6] VIDEO (UDP 9999) eth_dst=00:00:00:00:00:02 -> porta 5 (PREMIUM lower verso S4, priority=200)
+  [S6] DEFAULT eth_dst=00:00:00:00:00:02 -> porta 4 (STANDARD lower via S5, priority=100)
+  [S6] Configurazione completata con successo.
+----------------------------------------------
+Switch S2 connesso al controller
+----------------------------------------------
+  [S2] Regola table-miss installata (priority=0)
+  [S2] Regole ARP installate (no flood, no premium)
+  [S2] Regola drop IPv6 installata (priority=5)
+  [S2] Installazione regole di instradamento...
+  [S2] eth_dst=00:00:00:00:00:01 -> porta 1 (ritorno a S1)
+  [S2] VIDEO (UDP 9999) eth_dst=00:00:00:00:00:03 -> porta 3 (PREMIUM link verso S6, priority=200)
+  [S2] DEFAULT eth_dst=00:00:00:00:00:03 -> porta 2 (STANDARD via S3, priority=100)
+  [S2] Configurazione completata con successo.
+----------------------------------------------
+Switch S1 connesso al controller
+----------------------------------------------
+  [S1] Regola table-miss installata (priority=0)
+  [S1] Regole ARP installate (no flood, no premium)
+  [S1] Regola drop IPv6 installata (priority=5)
+  [S1] Installazione regole di instradamento...
+  [S1] eth_dst=00:00:00:00:00:01 -> porta 1 (H1)
+  [S1] eth_dst=00:00:00:00:00:02 -> porta 2 (H2)
+  [S1] eth_dst=00:00:00:00:00:03 -> porta 3 (percorso UPPER verso H3)
+  [S1] eth_dst=00:00:00:00:00:04 -> porta 4 (percorso LOWER verso H4)
+  [S1] Configurazione completata con successo.
+----------------------------------------------
+Switch S3 connesso al controller
+----------------------------------------------
+  [S3] Regola table-miss installata (priority=0)
+  [S3] Regole ARP installate (no flood, no premium)
+  [S3] Regola drop IPv6 installata (priority=5)
+  [S3] Installazione regole di instradamento...
+  [S3] in_port=1 (da S2) -> porta 2 (verso S6)
+  [S3] in_port=2 (da S6) -> porta 1 (verso S2)
+  [S3] Configurazione completata con successo.

@@ -1,0 +1,50 @@
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /home/user/Progetto_NCIS/SDN_Network_Slicing/topology_slicing_controller.py
+loading app ryu.controller.ofp_handler
+instantiating app /home/user/Progetto_NCIS/SDN_Network_Slicing/topology_slicing_controller.py of TopologySlicingController
+=================================================================
+TOPOLOGY SLICING CONTROLLER - SDN Network Slicing
+=================================================================
+Topologia: 6 switch con Premium Links
+Modalita: Topology Slicing (solo percorsi standard)
+-----------------------------------------------------------------
+Configurazione Slice:
+  Upper Slice: H1 (00:00:00:00:00:01) <-> H3 (00:00:00:00:00:03)
+    Percorso: H1 -> S1 -> S2 -> S3 -> S6 -> H3
+  Lower Slice: H2 (00:00:00:00:00:02) <-> H4 (00:00:00:00:00:04)
+    Percorso: H2 -> S1 -> S4 -> S5 -> S6 -> H4
+-----------------------------------------------------------------
+Premium Links: NON utilizzati (riservati per fasi 2 e 3)
+Comunicazioni Cross-Slice: BLOCCATE
+IPv6: DROP su tutti gli switch
+Flow idle_timeout: 300 secondi
+=================================================================
+instantiating app ryu.controller.ofp_handler of OFPHandler
+Switch S6 connesso - Installazione regole base
+Switch S6: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S3 connesso - Installazione regole base
+Switch S3: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S4 connesso - Installazione regole base
+Switch S4: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S1 connesso - Installazione regole base
+Switch S1: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S5 connesso - Installazione regole base
+Switch S5: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S2 connesso - Installazione regole base
+Switch S2: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+S6: Regola installata 00:00:00:00:00:03 -> 00:00:00:00:00:01 via porta 1 (idle_timeout=300s)
+S3: Regola installata 00:00:00:00:00:03 -> 00:00:00:00:00:01 via porta 1 (idle_timeout=300s)
+S2: Regola installata 00:00:00:00:00:03 -> 00:00:00:00:00:01 via porta 1 (idle_timeout=300s)
+S1: Regola installata 00:00:00:00:00:03 -> 00:00:00:00:00:01 via porta 1 (idle_timeout=300s)
+S1: Regola installata 00:00:00:00:00:01 -> 00:00:00:00:00:03 via porta 3 (idle_timeout=300s)
+S2: Regola installata 00:00:00:00:00:01 -> 00:00:00:00:00:03 via porta 2 (idle_timeout=300s)
+S3: Regola installata 00:00:00:00:00:01 -> 00:00:00:00:00:03 via porta 2 (idle_timeout=300s)
+S6: Regola installata 00:00:00:00:00:01 -> 00:00:00:00:00:03 via porta 3 (idle_timeout=300s)
+S6: Regola installata 00:00:00:00:00:04 -> 00:00:00:00:00:02 via porta 4 (idle_timeout=300s)
+S5: Regola installata 00:00:00:00:00:04 -> 00:00:00:00:00:02 via porta 1 (idle_timeout=300s)
+S4: Regola installata 00:00:00:00:00:04 -> 00:00:00:00:00:02 via porta 1 (idle_timeout=300s)
+S1: Regola installata 00:00:00:00:00:04 -> 00:00:00:00:00:02 via porta 2 (idle_timeout=300s)
+S1: Regola installata 00:00:00:00:00:02 -> 00:00:00:00:00:04 via porta 4 (idle_timeout=300s)
+S4: Regola installata 00:00:00:00:00:02 -> 00:00:00:00:00:04 via porta 2 (idle_timeout=300s)
+S5: Regola installata 00:00:00:00:00:02 -> 00:00:00:00:00:04 via porta 2 (idle_timeout=300s)
+S6: Regola installata 00:00:00:00:00:02 -> 00:00:00:00:00:04 via porta 6 (idle_timeout=300s)

@@ -1,0 +1,85 @@
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app /home/user/Progetto_NCIS/SDN_Network_Slicing/dynamic_slicing_controller.py
+loading app ryu.controller.ofp_handler
+creating context wsgi
+instantiating app /home/user/Progetto_NCIS/SDN_Network_Slicing/dynamic_slicing_controller.py of DynamicSlicingController
+InfluxDB connesso (database: sdn_metrics)
+============================================
+  Dynamic Slicing Controller avviato
+  Monitoraggio link premium ogni 5 sec
+  Controllo allocazione dinamica ogni 2 sec
+============================================
+instantiating app ryu.controller.ofp_handler of OFPHandler
+(38145) wsgi starting up on http://0.0.0.0:8080
+Switch S1 connesso (dpid=1)
+  -> Regola table-miss installata su S1
+Configurazione regole per S1...
+  S1: Traffico verso H3 -> percorso superiore (porta 3)
+  S1: Traffico verso H4 -> percorso inferiore (porta 4)
+  S1: Traffico verso H1 -> porta 1
+  S1: Traffico verso H2 -> porta 2
+  S1: Regole ARP installate (no premium, no loop)
+Thread di monitoraggio e dynamic slicing avviati
+Switch S4 connesso (dpid=4)
+  -> Regola table-miss installata su S4
+Configurazione regole per S4...
+  S4: Traffico VIDEO (UDP 9999) -> link premium (porta 3)
+  S4: Traffico normale -> link standard (porta 2)
+  S4: Traffico di ritorno -> S1 (porta 1)
+  S4: Regole ARP installate (no premium, no loop)
+Switch S6 connesso (dpid=6)
+  -> Regola table-miss installata su S6
+Configurazione regole per S6...
+  S6: Traffico verso H3 -> porta 3
+  S6: Traffico verso H4 -> porta 6
+  S6: Ritorno da H3 -> S3 standard (porta 1)
+  S6: Ritorno da H4 -> S5 standard (porta 4)
+  S6: Regole ARP installate (no premium, no loop)
+Switch S3 connesso (dpid=3)
+  -> Regola table-miss installata su S3
+Configurazione regole per S3...
+  S3: Da S2 (porta 1) -> S6 (porta 2)
+  S3: Da S6 (porta 2) -> S2 (porta 1)
+  S3: Regole ARP installate (no premium, no loop)
+Monitor loop avviato - intervallo: 5 secondi
+Dynamic slicing loop avviato - intervallo: 2 secondi
+Switch S5 connesso (dpid=5)
+  -> Regola table-miss installata su S5
+Configurazione regole per S5...
+  S5: Da S4 (porta 1) -> S6 (porta 2)
+  S5: Da S6 (porta 2) -> S4 (porta 1)
+  S5: Regole ARP installate (no premium, no loop)
+Switch S2 connesso (dpid=2)
+  -> Regola table-miss installata su S2
+Configurazione regole per S2...
+  S2: Traffico VIDEO (UDP 9999) -> link premium (porta 3)
+  S2: Traffico normale -> link standard (porta 2)
+  S2: Traffico di ritorno -> S1 (porta 1)
+  S2: Regole ARP installate (no premium, no loop)
+>>> ALLOCAZIONE DINAMICA su S2: utilizzo=0.0% (sotto soglia 30%) <<<
+  Regola dinamica installata su S2: UDP 800 -> porta 3 (premium, idle_timeout=300s)
+  Regola dinamica installata su S6: da porta 2 -> porta 3 (idle_timeout=300s)
+  Allocazione dinamica COMPLETATA su S2
+>>> ALLOCAZIONE DINAMICA su S4: utilizzo=0.0% (sotto soglia 30%) <<<
+  Regola dinamica installata su S4: UDP 800 -> porta 3 (premium, idle_timeout=300s)
+  Regola dinamica installata su S6: da porta 5 -> porta 6 (idle_timeout=300s)
+  Allocazione dinamica COMPLETATA su S4
+S4 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S2 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S4 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S2 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S4 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S2 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S4 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S2 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S4 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S2 porta premium 3: throughput=3.088 Mbps, smoothed=0.926 Mbps (15.4% capacita')
+S4 porta premium 3: throughput=0.000 Mbps, smoothed=0.000 Mbps (0.0% capacita')
+S2 porta premium 3: throughput=4.267 Mbps, smoothed=1.928 Mbps (32.1% capacita')
+Video rilevato su S2 tramite throughput: 1.9 Mbps
+*** PREEMPTION su S2: utilizzo=32.1%, video=True ***
+  Regola rimossa su S2 (priorita' 90)
+  Regola dinamica RIMOSSA da S2
+  Regola rimossa su S6 (priorita' 90)
+  Regola dinamica RIMOSSA da S6 (porta ingresso 2)
+  Preemption COMPLETATA su S2 - traffico dinamico rimosso

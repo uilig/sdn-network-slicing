@@ -1,0 +1,327 @@
+{
+  "timestamp": 1770926591.583037,
+  "premium_links": {
+    "upper": {
+      "usage_mbps": 2.706,
+      "capacity_mbps": 6.0,
+      "dynamic_active": false,
+      "video_active": true
+    },
+    "lower": {
+      "usage_mbps": 0.0,
+      "capacity_mbps": 6.0,
+      "dynamic_active": true,
+      "video_active": false
+    }
+  },
+  "slice_delay": {
+    "premium_one_way_ms": 13,
+    "premium_hops": 3,
+    "standard_one_way_ms": 110,
+    "standard_hops": 4
+  },
+  "video_streams": 1,
+  "dynamic_flows_count": 1,
+  "dynamic_detail": [
+    "S4"
+  ],
+  "preemption_count": 1,
+  "events": [
+    {
+      "timestamp": "21:02:50",
+      "type": "preemption",
+      "message": "Preemption eseguita sul percorso superiore (S2 -> S6) - traffico dinamico rimosso"
+    },
+    {
+      "timestamp": "21:02:50",
+      "type": "video",
+      "message": "Flusso video rilevato sul percorso superiore (S2 -> S6) (throughput: 2.0 Mbps)"
+    },
+    {
+      "timestamp": "21:02:12",
+      "type": "dynamic",
+      "message": "Allocazione dinamica attivata sul percorso inferiore (S4 -> S6)"
+    },
+    {
+      "timestamp": "21:02:12",
+      "type": "dynamic",
+      "message": "Allocazione dinamica attivata sul percorso superiore (S2 -> S6)"
+    }
+  ],
+  "port_stats": {
+    "1": {
+      "4": {
+        "tx_bytes": 59614,
+        "rx_bytes": 104788,
+        "tx_packets": 1368,
+        "rx_packets": 2310,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "1": {
+        "tx_bytes": 174076,
+        "rx_bytes": 19600072,
+        "tx_packets": 4059,
+        "rx_packets": 12991,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "2": {
+        "tx_bytes": 152726,
+        "rx_bytes": 20812,
+        "tx_packets": 3580,
+        "rx_packets": 476,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "3": {
+        "tx_bytes": 19654642,
+        "rx_bytes": 107030,
+        "tx_packets": 14329,
+        "rx_packets": 2333,
+        "tx_errors": 0,
+        "rx_errors": 0
+      }
+    },
+    "2": {
+      "1": {
+        "tx_bytes": 107030,
+        "rx_bytes": 19654642,
+        "tx_packets": 2333,
+        "rx_packets": 14329,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "2": {
+        "tx_bytes": 6150970,
+        "rx_bytes": 101446,
+        "tx_packets": 5398,
+        "rx_packets": 2289,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "3": {
+        "tx_bytes": 13502106,
+        "rx_bytes": 2970,
+        "tx_packets": 8952,
+        "rx_packets": 24,
+        "tx_errors": 0,
+        "rx_errors": 0
+      }
+    },
+    "5": {
+      "1": {
+        "tx_bytes": 99258,
+        "rx_bytes": 59614,
+        "tx_packets": 2267,
+        "rx_packets": 1368,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "2": {
+        "tx_bytes": 62166,
+        "rx_bytes": 96448,
+        "tx_packets": 1385,
+        "rx_packets": 2245,
+        "tx_errors": 0,
+        "rx_errors": 0
+      }
+    },
+    "4": {
+      "1": {
+        "tx_bytes": 104788,
+        "rx_bytes": 59614,
+        "tx_packets": 2310,
+        "rx_packets": 1368,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "2": {
+        "tx_bytes": 59614,
+        "rx_bytes": 99258,
+        "tx_packets": 1368,
+        "rx_packets": 2267,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "3": {
+        "tx_bytes": 2900,
+        "rx_bytes": 2900,
+        "tx_packets": 23,
+        "rx_packets": 23,
+        "tx_errors": 0,
+        "rx_errors": 0
+      }
+    },
+    "3": {
+      "1": {
+        "tx_bytes": 101446,
+        "rx_bytes": 6150970,
+        "tx_packets": 2289,
+        "rx_packets": 5398,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "2": {
+        "tx_bytes": 6145966,
+        "rx_bytes": 98722,
+        "tx_packets": 5410,
+        "rx_packets": 2268,
+        "tx_errors": 0,
+        "rx_errors": 0
+      }
+    },
+    "6": {
+      "1": {
+        "tx_bytes": 98722,
+        "rx_bytes": 6145966,
+        "tx_packets": 2268,
+        "rx_packets": 5410,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "4": {
+        "tx_bytes": 96448,
+        "rx_bytes": 62166,
+        "tx_packets": 2245,
+        "rx_packets": 1385,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "6": {
+        "tx_bytes": 115718,
+        "rx_bytes": 56884,
+        "tx_packets": 2700,
+        "rx_packets": 1336,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "5": {
+        "tx_bytes": 2900,
+        "rx_bytes": 2900,
+        "tx_packets": 23,
+        "rx_packets": 23,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "2": {
+        "tx_bytes": 2970,
+        "rx_bytes": 13502106,
+        "tx_packets": 24,
+        "rx_packets": 8952,
+        "tx_errors": 0,
+        "rx_errors": 0
+      },
+      "3": {
+        "tx_bytes": 19715324,
+        "rx_bytes": 40972,
+        "tx_packets": 16085,
+        "rx_packets": 926,
+        "tx_errors": 0,
+        "rx_errors": 0
+      }
+    }
+  },
+  "port_speed": {
+    "4": {
+      "1": {
+        "tx_bps": 15450.068693969004,
+        "tx_mbps": 0.015450068693969005
+      },
+      "2": {
+        "tx_bps": 9538.738063233037,
+        "tx_mbps": 0.009538738063233037
+      },
+      "3": {
+        "tx_bps": 0.0,
+        "tx_mbps": 0.0
+      }
+    },
+    "1": {
+      "4": {
+        "tx_bps": 9267.189443337702,
+        "tx_mbps": 0.009267189443337702
+      },
+      "1": {
+        "tx_bps": 30519.68807702382,
+        "tx_mbps": 0.03051968807702382
+      },
+      "2": {
+        "tx_bps": 24712.505182233876,
+        "tx_mbps": 0.024712505182233876
+      },
+      "3": {
+        "tx_bps": 1850905.2406209141,
+        "tx_mbps": 1.850905240620914
+      }
+    },
+    "2": {
+      "1": {
+        "tx_bps": 18392.604025376033,
+        "tx_mbps": 0.018392604025376035
+      },
+      "2": {
+        "tx_bps": 1089968.1055399885,
+        "tx_mbps": 1.0899681055399886
+      },
+      "3": {
+        "tx_bps": 766690.1010487488,
+        "tx_mbps": 0.7666901010487488
+      }
+    },
+    "5": {
+      "1": {
+        "tx_bps": 15448.490677167747,
+        "tx_mbps": 0.015448490677167748
+      },
+      "2": {
+        "tx_bps": 9403.429107841237,
+        "tx_mbps": 0.009403429107841237
+      }
+    },
+    "3": {
+      "1": {
+        "tx_bps": 18276.34128886402,
+        "tx_mbps": 0.01827634128886402
+      },
+      "2": {
+        "tx_bps": 1089576.9449744287,
+        "tx_mbps": 1.0895769449744288
+      }
+    },
+    "6": {
+      "1": {
+        "tx_bps": 18280.927005685608,
+        "tx_mbps": 0.018280927005685607
+      },
+      "4": {
+        "tx_bps": 15450.022298768416,
+        "tx_mbps": 0.015450022298768415
+      },
+      "6": {
+        "tx_bps": 18808.72279850068,
+        "tx_mbps": 0.01880872279850068
+      },
+      "5": {
+        "tx_bps": 0.0,
+        "tx_mbps": 0.0
+      },
+      "2": {
+        "tx_bps": 111.9566833244088,
+        "tx_mbps": 0.0001119566833244088
+      },
+      "3": {
+        "tx_bps": 1876256.4657347216,
+        "tx_mbps": 1.8762564657347216
+      }
+    }
+  },
+  "switches_connected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]
+}

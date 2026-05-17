@@ -1,0 +1,104 @@
+============================================================
+SCENARIO A: Video UDP 9999 + TCP 5001 + Ping simultanei
+============================================================
+
+--- PING (Scenario A) ---
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=489 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=285 ms
+64 bytes from 10.0.0.3: icmp_seq=3 ttl=64 time=1087 ms
+64 bytes from 10.0.0.3: icmp_seq=4 ttl=64 time=1140 ms
+64 bytes from 10.0.0.3: icmp_seq=5 ttl=64 time=1227 ms
+64 bytes from 10.0.0.3: icmp_seq=6 ttl=64 time=1304 ms
+64 bytes from 10.0.0.3: icmp_seq=7 ttl=64 time=1300 ms
+64 bytes from 10.0.0.3: icmp_seq=8 ttl=64 time=1275 ms
+64 bytes from 10.0.0.3: icmp_seq=9 ttl=64 time=1454 ms
+64 bytes from 10.0.0.3: icmp_seq=10 ttl=64 time=1640 ms
+64 bytes from 10.0.0.3: icmp_seq=11 ttl=64 time=1957 ms
+64 bytes from 10.0.0.3: icmp_seq=12 ttl=64 time=2341 ms
+64 bytes from 10.0.0.3: icmp_seq=13 ttl=64 time=2810 ms
+64 bytes from 10.0.0.3: icmp_seq=14 ttl=64 time=3399 ms
+64 bytes from 10.0.0.3: icmp_seq=15 ttl=64 time=4004 ms
+
+--- 10.0.0.3 ping statistics ---
+15 packets transmitted, 15 received, 0% packet loss, time 14118ms
+rtt min/avg/max/mdev = 285.217/1714.216/4004.385/994.752 ms, pipe 3
+
+
+--- IPERF VIDEO UDP 9999 (Scenario A) ---
+------------------------------------------------------------
+Client connecting to 10.0.0.3, UDP port 9999
+Sending 1470 byte datagrams, IPG target: 2803.80 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.1 port 56282 connected with 10.0.0.3 port 9999
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-20.0055 sec  10.0 MBytes  4.20 Mbits/sec
+[  1] Sent 7138 datagrams
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-19.7758 sec  10.0 MBytes  4.24 Mbits/sec   2.318 ms 0/7137 (0%)
+[  1] 0.0000-19.7758 sec  3 datagrams received out-of-order
+
+
+--- IPERF TCP 5001 (Scenario A) ---
+------------------------------------------------------------
+Client connecting to 10.0.0.3, TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.1 port 40854 connected with 10.0.0.3 port 5001
+
+
+============================================================
+SCENARIO B: Solo Video UDP 9999 + Ping (senza TCP)
+============================================================
+
+--- PING (Scenario B) ---
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=5173 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=4149 ms
+64 bytes from 10.0.0.3: icmp_seq=3 ttl=64 time=3126 ms
+64 bytes from 10.0.0.3: icmp_seq=4 ttl=64 time=2097 ms
+64 bytes from 10.0.0.3: icmp_seq=5 ttl=64 time=1078 ms
+64 bytes from 10.0.0.3: icmp_seq=6 ttl=64 time=264 ms
+64 bytes from 10.0.0.3: icmp_seq=7 ttl=64 time=322 ms
+64 bytes from 10.0.0.3: icmp_seq=8 ttl=64 time=234 ms
+64 bytes from 10.0.0.3: icmp_seq=9 ttl=64 time=256 ms
+64 bytes from 10.0.0.3: icmp_seq=10 ttl=64 time=235 ms
+64 bytes from 10.0.0.3: icmp_seq=11 ttl=64 time=268 ms
+64 bytes from 10.0.0.3: icmp_seq=12 ttl=64 time=226 ms
+64 bytes from 10.0.0.3: icmp_seq=13 ttl=64 time=248 ms
+64 bytes from 10.0.0.3: icmp_seq=14 ttl=64 time=233 ms
+64 bytes from 10.0.0.3: icmp_seq=15 ttl=64 time=242 ms
+
+--- 10.0.0.3 ping statistics ---
+15 packets transmitted, 15 received, 0% packet loss, time 14148ms
+rtt min/avg/max/mdev = 225.811/1209.894/5172.802/1591.337 ms, pipe 6
+
+
+--- IPERF VIDEO UDP 9999 (Scenario B) ---
+------------------------------------------------------------
+Client connecting to 10.0.0.3, UDP port 9999
+Sending 1470 byte datagrams, IPG target: 2803.80 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.1 port 44248 connected with 10.0.0.3 port 9999
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-20.0058 sec  10.0 MBytes  4.20 Mbits/sec
+[  1] Sent 7138 datagrams
+[  1] Server Report:
+[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+[  1] 0.0000-20.0110 sec  10.0 MBytes  4.19 Mbits/sec   1.985 ms 0/7137 (0%)
+[  1] 0.0000-20.0110 sec  1 datagrams received out-of-order
+
+
+============================================================
+CONFRONTO SCENARIO A vs B
+============================================================
+Ping RTT medio Scenario A (con TCP): 1714.216 ms
+Ping RTT medio Scenario B (senza TCP): 1209.894 ms
+Ping packet loss A: 0% packet loss
+Ping packet loss B: 0% packet loss
+
+Atteso: Video ~uguale in A e B (premium link isolato).
+        RTT ping piu alto in A (TCP congestiona percorso standard).

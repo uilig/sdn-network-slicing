@@ -1,0 +1,32 @@
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app topology_slicing_controller.py
+loading app ryu.controller.ofp_handler
+instantiating app topology_slicing_controller.py of TopologySlicingController
+=================================================================
+TOPOLOGY SLICING CONTROLLER - SDN Network Slicing
+=================================================================
+Topologia: 6 switch con Premium Links
+Modalita: Topology Slicing (solo percorsi standard)
+-----------------------------------------------------------------
+Configurazione Slice:
+  Upper Slice: H1 (00:00:00:00:00:01) <-> H3 (00:00:00:00:00:03)
+    Percorso: H1 -> S1 -> S2 -> S3 -> S6 -> H3
+  Lower Slice: H2 (00:00:00:00:00:02) <-> H4 (00:00:00:00:00:04)
+    Percorso: H2 -> S1 -> S4 -> S5 -> S6 -> H4
+-----------------------------------------------------------------
+Premium Links: NON utilizzati (riservati per fasi 2 e 3)
+Comunicazioni Cross-Slice: BLOCCATE
+IPv6: DROP su tutti gli switch
+Flow idle_timeout: 300 secondi
+=================================================================
+instantiating app ryu.controller.ofp_handler of OFPHandler
+Switch S3 connesso - Installazione regole base
+Switch S3: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S4 connesso - Installazione regole base
+Switch S4: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S6 connesso - Installazione regole base
+Switch S6: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S5 connesso - Installazione regole base
+Switch S5: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)
+Switch S2 connesso - Installazione regole base
+Switch S2: regole base installate (table-miss priorita 0, drop IPv6 priorita 5)

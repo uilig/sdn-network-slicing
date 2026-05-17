@@ -1,0 +1,144 @@
+=== PINGALL ===
+Drop rate: 0.0%
+
+
+=== IPERF VIDEO H1->H3 (UDP 9999, premium) ===
+------------------------------------------------------------
+Client connecting to 10.0.0.3, UDP port 9999
+Sending 1470 byte datagrams, IPG target: 1121.52 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.1 port 59224 connected with 10.0.0.3 port 9999
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0047 sec  12.5 MBytes  10.5 Mbits/sec
+[  1] Sent 8917 datagrams
+[  3] WARNING: did not receive ack of last datagram after 10 tries.
+
+
+
+=== IPERF STANDARD H1->H3 (TCP 5001, standard) ===
+------------------------------------------------------------
+Client connecting to 10.0.0.3, TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.1 port 33684 connected with 10.0.0.3 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-20.9108 sec  4.50 MBytes  1.81 Mbits/sec
+
+
+
+=== IPERF VIDEO H2->H4 (UDP 9999, premium) ===
+------------------------------------------------------------
+Client connecting to 10.0.0.4, UDP port 9999
+Sending 1470 byte datagrams, IPG target: 1121.52 us (kalman adjust)
+UDP buffer size:  208 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.2 port 49894 connected with 10.0.0.4 port 9999
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-10.0038 sec  12.5 MBytes  10.5 Mbits/sec
+[  1] Sent 8921 datagrams
+[  3] WARNING: did not receive ack of last datagram after 10 tries.
+
+
+
+=== IPERF STANDARD H2->H4 (TCP 5001, standard) ===
+------------------------------------------------------------
+Client connecting to 10.0.0.4, TCP port 5001
+TCP window size: 85.3 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.2 port 47316 connected with 10.0.0.4 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-20.7050 sec  4.38 MBytes  1.77 Mbits/sec
+
+
+
+=== PING H1->H3 (RTT) ===
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=249 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=244 ms
+64 bytes from 10.0.0.3: icmp_seq=3 ttl=64 time=235 ms
+64 bytes from 10.0.0.3: icmp_seq=4 ttl=64 time=243 ms
+64 bytes from 10.0.0.3: icmp_seq=5 ttl=64 time=238 ms
+64 bytes from 10.0.0.3: icmp_seq=6 ttl=64 time=244 ms
+64 bytes from 10.0.0.3: icmp_seq=7 ttl=64 time=230 ms
+64 bytes from 10.0.0.3: icmp_seq=8 ttl=64 time=241 ms
+64 bytes from 10.0.0.3: icmp_seq=9 ttl=64 time=264 ms
+64 bytes from 10.0.0.3: icmp_seq=10 ttl=64 time=255 ms
+
+--- 10.0.0.3 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9123ms
+rtt min/avg/max/mdev = 230.258/244.119/263.620/9.259 ms
+
+
+
+=== FLOWS S1 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=93.871s, table=0, n_packets=3594, n_bytes=210552, priority=100,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=93.871s, table=0, n_packets=2938, n_bytes=181800, priority=100,dl_dst=00:00:00:00:00:02 actions=output:2
+ cookie=0x0, duration=93.871s, table=0, n_packets=10808, n_bytes=18614892, priority=100,dl_dst=00:00:00:00:00:03 actions=output:3
+ cookie=0x0, duration=93.871s, table=0, n_packets=10763, n_bytes=18486338, priority=100,dl_dst=00:00:00:00:00:04 actions=output:4
+ cookie=0x0, duration=93.871s, table=0, n_packets=3, n_bytes=126, priority=50,arp,in_port=1 actions=output:3,output:4
+ cookie=0x0, duration=93.871s, table=0, n_packets=2, n_bytes=84, priority=50,arp,in_port=2 actions=output:3,output:4
+ cookie=0x0, duration=93.871s, table=0, n_packets=1815, n_bytes=76230, priority=50,arp,in_port=3 actions=output:1,output:2,output:4
+ cookie=0x0, duration=93.871s, table=0, n_packets=1727, n_bytes=72534, priority=50,arp,in_port=4 actions=output:1,output:2,output:3
+ cookie=0x0, duration=93.871s, table=0, n_packets=63, n_bytes=7204, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=93.871s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S2 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=93.885s, table=0, n_packets=9116, n_bytes=13783392, priority=200,udp,dl_dst=00:00:00:00:00:03,tp_dst=9999 actions=output:3
+ cookie=0x0, duration=93.885s, table=0, n_packets=2991, n_bytes=185114, priority=100,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=93.885s, table=0, n_packets=1692, n_bytes=4831500, priority=100,dl_dst=00:00:00:00:00:03 actions=output:2
+ cookie=0x0, duration=93.886s, table=0, n_packets=1732, n_bytes=72744, priority=50,arp,in_port=1 actions=output:2
+ cookie=0x0, duration=93.886s, table=0, n_packets=1815, n_bytes=76230, priority=50,arp,in_port=2 actions=output:1
+ cookie=0x0, duration=93.886s, table=0, n_packets=91, n_bytes=11578, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=93.886s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S3 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=93.913s, table=0, n_packets=3446, n_bytes=4907061, priority=100,in_port=1 actions=output:2
+ cookie=0x0, duration=93.913s, table=0, n_packets=4828, n_bytes=264173, priority=100,in_port=2 actions=output:1
+ cookie=0x0, duration=93.913s, table=0, n_packets=0, n_bytes=0, priority=50,arp,in_port=1 actions=output:2
+ cookie=0x0, duration=93.913s, table=0, n_packets=0, n_bytes=0, priority=50,arp,in_port=2 actions=output:1
+ cookie=0x0, duration=93.913s, table=0, n_packets=0, n_bytes=0, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=93.913s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S4 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=93.954s, table=0, n_packets=9120, n_bytes=13789440, priority=200,udp,dl_dst=00:00:00:00:00:04,tp_dst=9999 actions=output:3
+ cookie=0x0, duration=93.954s, table=0, n_packets=2935, n_bytes=181562, priority=100,dl_dst=00:00:00:00:00:02 actions=output:1
+ cookie=0x0, duration=93.954s, table=0, n_packets=1643, n_bytes=4696898, priority=100,dl_dst=00:00:00:00:00:04 actions=output:2
+ cookie=0x0, duration=93.954s, table=0, n_packets=1820, n_bytes=76440, priority=50,arp,in_port=1 actions=output:2
+ cookie=0x0, duration=93.954s, table=0, n_packets=1727, n_bytes=72534, priority=50,arp,in_port=2 actions=output:1
+ cookie=0x0, duration=93.954s, table=0, n_packets=94, n_bytes=11844, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=93.954s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S5 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=93.954s, table=0, n_packets=3486, n_bytes=4776253, priority=100,in_port=1 actions=output:2
+ cookie=0x0, duration=93.954s, table=0, n_packets=4686, n_bytes=257101, priority=100,in_port=2 actions=output:1
+ cookie=0x0, duration=93.954s, table=0, n_packets=0, n_bytes=0, priority=50,arp,in_port=1 actions=output:2
+ cookie=0x0, duration=93.954s, table=0, n_packets=0, n_bytes=0, priority=50,arp,in_port=2 actions=output:1
+ cookie=0x0, duration=93.954s, table=0, n_packets=0, n_bytes=0, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=93.954s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S6 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=93.978s, table=0, n_packets=0, n_bytes=0, priority=200,udp,dl_dst=00:00:00:00:00:01,tp_dst=9999 actions=output:2
+ cookie=0x0, duration=93.978s, table=0, n_packets=0, n_bytes=0, priority=200,udp,dl_dst=00:00:00:00:00:02,tp_dst=9999 actions=output:5
+ cookie=0x0, duration=93.978s, table=0, n_packets=7750, n_bytes=13141592, priority=100,dl_dst=00:00:00:00:00:03 actions=output:3
+ cookie=0x0, duration=93.978s, table=0, n_packets=7087, n_bytes=12923928, priority=100,dl_dst=00:00:00:00:00:04 actions=output:6
+ cookie=0x0, duration=93.978s, table=0, n_packets=2991, n_bytes=185114, priority=100,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=93.978s, table=0, n_packets=2935, n_bytes=181562, priority=100,dl_dst=00:00:00:00:00:02 actions=output:4
+ cookie=0x0, duration=93.978s, table=0, n_packets=1732, n_bytes=72744, priority=50,arp,in_port=1 actions=output:3,output:4,output:6
+ cookie=0x0, duration=93.978s, table=0, n_packets=1, n_bytes=42, priority=50,arp,in_port=3 actions=output:1,output:4,output:6
+ cookie=0x0, duration=93.978s, table=0, n_packets=1814, n_bytes=76188, priority=50,arp,in_port=4 actions=output:1,output:3,output:6
+ cookie=0x0, duration=93.978s, table=0, n_packets=0, n_bytes=0, priority=50,arp,in_port=6 actions=output:1,output:3,output:4
+ cookie=0x0, duration=93.978s, table=0, n_packets=158, n_bytes=19122, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=93.978s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+

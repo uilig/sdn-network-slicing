@@ -1,0 +1,91 @@
+=== PINGALL ===
+Drop rate: 66.66666666666667%
+
+
+=== PING H1 -> H3 (intra-slice) ===
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+64 bytes from 10.0.0.3: icmp_seq=1 ttl=64 time=244 ms
+64 bytes from 10.0.0.3: icmp_seq=2 ttl=64 time=243 ms
+64 bytes from 10.0.0.3: icmp_seq=3 ttl=64 time=442 ms
+64 bytes from 10.0.0.3: icmp_seq=4 ttl=64 time=244 ms
+64 bytes from 10.0.0.3: icmp_seq=5 ttl=64 time=242 ms
+
+--- 10.0.0.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4025ms
+rtt min/avg/max/mdev = 242.047/282.887/441.666/79.392 ms
+
+
+
+=== PING H2 -> H4 (intra-slice) ===
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+64 bytes from 10.0.0.4: icmp_seq=1 ttl=64 time=248 ms
+64 bytes from 10.0.0.4: icmp_seq=2 ttl=64 time=250 ms
+64 bytes from 10.0.0.4: icmp_seq=3 ttl=64 time=244 ms
+64 bytes from 10.0.0.4: icmp_seq=4 ttl=64 time=268 ms
+64 bytes from 10.0.0.4: icmp_seq=5 ttl=64 time=239 ms
+
+--- 10.0.0.4 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 238.696/249.738/268.114/9.961 ms
+
+
+
+=== PING H1 -> H4 (cross-slice) ===
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+From 10.0.0.1 icmp_seq=1 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=2 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=3 Destination Host Unreachable
+
+--- 10.0.0.4 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2040ms
+pipe 3
+
+
+
+=== PING H2 -> H3 (cross-slice) ===
+PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+From 10.0.0.2 icmp_seq=1 Destination Host Unreachable
+From 10.0.0.2 icmp_seq=2 Destination Host Unreachable
+From 10.0.0.2 icmp_seq=3 Destination Host Unreachable
+
+--- 10.0.0.3 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2087ms
+pipe 3
+
+
+
+=== FLOWS S1 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=37.549s, table=0, n_packets=9, n_bytes=770, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=37.543s, table=0, n_packets=8, n_bytes=672, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:3
+ cookie=0x0, duration=27.808s, table=0, n_packets=8, n_bytes=728, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=output:2
+ cookie=0x0, duration=27.803s, table=0, n_packets=7, n_bytes=630, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=output:4
+ cookie=0x0, duration=51.301s, table=0, n_packets=56, n_bytes=6556, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=51.301s, table=0, n_packets=36, n_bytes=1624, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S2 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=37.579s, table=0, n_packets=9, n_bytes=770, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=37.560s, table=0, n_packets=8, n_bytes=672, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:2
+ cookie=0x0, duration=51.329s, table=0, n_packets=61, n_bytes=7992, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=51.329s, table=0, n_packets=18, n_bytes=812, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S4 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=27.859s, table=0, n_packets=8, n_bytes=728, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=output:1
+ cookie=0x0, duration=27.827s, table=0, n_packets=7, n_bytes=630, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=output:2
+ cookie=0x0, duration=51.343s, table=0, n_packets=62, n_bytes=8082, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=51.343s, table=0, n_packets=18, n_bytes=812, priority=0 actions=CONTROLLER:65535
+
+
+=== FLOWS S6 ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=37.727s, table=0, n_packets=9, n_bytes=770, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:03,dl_dst=00:00:00:00:00:01 actions=output:1
+ cookie=0x0, duration=37.479s, table=0, n_packets=8, n_bytes=672, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:01,dl_dst=00:00:00:00:00:03 actions=output:3
+ cookie=0x0, duration=27.985s, table=0, n_packets=8, n_bytes=728, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:04,dl_dst=00:00:00:00:00:02 actions=output:4
+ cookie=0x0, duration=27.731s, table=0, n_packets=7, n_bytes=630, idle_timeout=300, priority=10,dl_src=00:00:00:00:00:02,dl_dst=00:00:00:00:00:04 actions=output:6
+ cookie=0x0, duration=51.371s, table=0, n_packets=102, n_bytes=12380, priority=5,ipv6 actions=drop
+ cookie=0x0, duration=51.371s, table=0, n_packets=36, n_bytes=1624, priority=0 actions=CONTROLLER:65535
+

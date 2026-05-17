@@ -1,0 +1,54 @@
+=== PINGALL ===
+Drop rate: 0.0%
+
+=== ITGRecv avviato su H3 ===
+
+=== Flow Normale avviato ===
+Comando: ITGSend -a 10.0.0.3 -rp 800 -C 500 -c 1000 -t 60000 -T UDP -l /home/user/Progetto_NCIS/SDN_Network_Slicing/test_results/ditg/normal_send.log -x /home/user/Progetto_NCIS/SDN_Network_Slicing/test_results/ditg/normal_recv.log &
+
+=== FLOWS S2 (dopo allocazione flow normale) ===
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x0, duration=32.056s, table=0, n_packets=0, n_bytes=0, priority=200,udp,tp_dst=9999 actions=output:3
+ cookie=0x0, duration=32.056s, table=0, n_packets=4198, n_bytes=4363945, priority=100,ip,in_port=1 actions=output:2
+ cookie=0x0, duration=32.056s, table=0, n_packets=220, n_bytes=9240, priority=50,arp,in_port=1 actions=output:2
+ cookie=0x0, duration=32.056s, table=0, n_packets=0, n_bytes=0, priority=50,arp,in_port=2 actions=output:1
+ cookie=0x0, duration=32.056s, table=0, n_packets=842, n_bytes=39278, priority=100,in_port=2 actions=output:1
+ cookie=0x0, duration=32.056s, table=0, n_packets=19, n_bytes=2509, priority=100,in_port=3 actions=output:1
+ cookie=0x0, duration=30.049s, table=0, n_packets=0, n_bytes=0, idle_timeout=300, priority=90,udp,in_port=1,tp_dst=800 actions=output:3
+ cookie=0x0, duration=32.056s, table=0, n_packets=20, n_bytes=2654, priority=0 actions=CONTROLLER:65535
+
+
+priority=90 presente: SI
+
+=== Flow Video avviato ===
+Comando: ITGSend -a 10.0.0.3 -rp 9999 -C 4000 -c 1400 -t 30000 -T UDP -l /home/user/Progetto_NCIS/SDN_Network_Slicing/test_results/ditg/video_send.log -x /home/user/Progetto_NCIS/SDN_Network_Slicing/test_results/ditg/video_recv.log
+
+=== Output ITGSend Video ===
+ITGSend version 2.8.1 (r1023)
+Compile-time options: sctp dccp bursty multiport
+Started sending packets of flow ID: 1
+ITGSend version 2.8.1 (r1023)
+Compile-time options: sctp dccp bursty multiport
+Finished sending packets of flow ID: 1
+
+Started sending packets of flow ID: 1
+Finished sending packets of flow ID: 1
+
+
+
+=== API /api/stats ===
+{"timestamp": 1770929349.2530806, "premium_links": {"upper": {"usage_mbps": 1.672, "capacity_mbps": 6.0, "dynamic_active": false, "video_active": true}, "lower": {"usage_mbps": 0.0, "capacity_mbps": 6.0, "dynamic_active": true, "video_active": false}}, "slice_delay": {"premium_one_way_ms": 13, "premium_hops": 3, "standard_one_way_ms": 110, "standard_hops": 4}, "video_streams": 1, "dynamic_flows_count": 1, "dynamic_detail": ["S4"], "preemption_count": 1, "events": [{"timestamp": "21:48:27", "type": "preemption", "message": "Preemption eseguita sul percorso superiore (S2 -> S6) - traffico dinamico rimosso"}, {"timestamp": "21:48:27", "type": "video", "message": "Flusso video rilevato sul percorso superiore (S2 -> S6) (throughput: 2.1 Mbps)"}, {"timestamp": "21:46:53", "type": "dynamic", "message": "Allocazione dinamica attivata sul percorso inferiore (S4 -> S6)"}, {"timestamp": "21:46:53", "type": "dynamic", "message": "Allocazione dinamica attivata sul percorso superiore (S2 -> S6)"}], "port_stats": {"6": {"1": {"tx_bytes": 209430, "rx_bytes": 15144044, "tx_packets": 4832, "rx_packets": 15059, "tx_errors": 0, "rx_errors": 0}, "6": {"tx_bytes": 163526, "rx_bytes": 75630, "tx_packets": 3833, "rx_packets": 1781, "tx_errors": 0, "rx_errors": 0}, "4": {"tx_bytes": 72996, "rx_bytes": 146784, "tx_packets": 1681, "rx_packets": 3388, "tx_errors": 0, "rx_errors": 0}, "5": {"tx_bytes": 3290, "rx_bytes": 3290, "tx_packets": 27, "rx_packets": 27, "tx_errors": 0, "rx_errors": 0}, "2": {"tx_bytes": 3220, "rx_bytes": 20994484, "tx_packets": 26, "rx_packets": 14584, "tx_errors": 0, "rx_errors": 0}, "3": {"tx_bytes": 36296893, "rx_bytes": 67642, "tx_packets": 33506, "rx_packets": 1492, "tx_errors": 0, "rx_errors": 0}}, "4": {"1": {"tx_bytes": 82334, "rx_bytes": 143766, "tx_packets": 1756, "rx_packets": 3367, "tx_errors": 0, "rx_errors": 0}, "2": {"tx_bytes": 143584, "rx_bytes": 76110, "tx_packets": 3362, "rx_packets": 1706, "tx_errors": 0, "rx_errors": 0}, "3": {"tx_bytes": 3290, "rx_bytes": 3290, "tx_packets": 27, "rx_packets": 27, "tx_errors": 0, "rx_errors": 0}}, "2": {"1": {"tx_bytes": 218522, "rx_bytes": 59587358, "tx_packets": 4904, "rx_packets": 46677, "tx_errors": 0, "rx_errors": 0}, "2": {"tx_bytes": 15141110, "rx_bytes": 212544, "tx_packets": 15036, "rx_packets": 4857, "tx_errors": 0, "rx_errors": 0}, "3": {"tx_bytes": 20994484, "rx_bytes": 3220, "tx_packets": 14584, "rx_packets": 26, "tx_errors": 0, "rx_errors": 0}}, "5": {"1": {"tx_bytes": 76110, "rx_bytes": 143584, "tx_packets": 1706, "rx_packets": 3362, "tx_errors": 0, "rx_errors": 0}, "2": {"tx_bytes": 146784, "rx_bytes": 72996, "tx_packets": 3388, "rx_packets": 1681, "tx_errors": 0, "rx_errors": 0}}, "3": {"1": {"tx_bytes": 212544, "rx_bytes": 15141110, "tx_packets": 4857, "rx_packets": 15036, "tx_errors": 0, "rx_errors": 0}, "2": {"tx_bytes": 15144044, "rx_bytes": 209430, "tx_packets": 15059, "rx_packets": 4832, "tx_errors": 0, "rx_errors": 0}}, "1": {"4": {"tx_bytes": 143766, "rx_bytes": 82334, "tx_packets": 3367, "rx_packets": 1756, "tx_errors": 0, "rx_errors": 0}, "1": {"tx_bytes": 254998, "rx_bytes": 59565920, "tx_packets": 5912, "rx_packets": 46200, "tx_errors": 0, "rx_errors": 0}, "2": {"tx_bytes": 212938, "rx_bytes": 27098, "tx_packets": 5009, "rx_packets": 625, "tx_errors": 0, "rx_errors": 0}, "3": {"tx_bytes": 59587358, "rx_bytes": 218522, "tx_packets": 46677, "rx_packets": 4904, "tx_errors": 0, "rx_errors": 0}}}, "port_speed": {"4": {"1": {"tx_bps": 4542.976875772801, "tx_mbps": 0.0045429768757728}, "2": {"tx_bps": 8459.336251439008, "tx_mbps": 0.008459336251439008}, "3": {"tx_bps": 0.0, "tx_mbps": 0.0}}, "3": {"1": {"tx_bps": 13410.834957551197, "tx_mbps": 0.013410834957551196}, "2": {"tx_bps": 1522.432015214493, "tx_mbps": 0.001522432015214493}}, "6": {"1": {"tx_bps": 12805.633761319024, "tx_mbps": 0.012805633761319024}, "6": {"tx_bps": 9872.87498031764, "tx_mbps": 0.00987287498031764}, "4": {"tx_bps": 4231.232134421845, "tx_mbps": 0.004231232134421846}, "5": {"tx_bps": 0.0, "tx_mbps": 0.0}, "2": {"tx_bps": 0.0, "tx_mbps": 0.0}, "3": {"tx_bps": 11395.223049845077, "tx_mbps": 0.011395223049845077}}, "1": {"4": {"tx_bps": 8862.82847276125, "tx_mbps": 0.00886282847276125}, "1": {"tx_bps": 16360.42326663756, "tx_mbps": 0.016360423266637558}, "2": {"tx_bps": 13294.242709141876, "tx_mbps": 0.013294242709141877}, "3": {"tx_bps": 1477.1380787935416, "tx_mbps": 0.0014771380787935416}}, "5": {"1": {"tx_bps": 4543.275778129338, "tx_mbps": 0.004543275778129337}, "2": {"tx_bps": 8459.892828240836, "tx_mbps": 0.008459892828240835}}, "2": {"1": {"tx_bps": 13410.455948740992, "tx_mbps": 0.013410455948740992}, "2": {"tx_bps": 1410.4486223216736, "tx_mbps": 0.0014104486223216737}, "3": {"tx_bps": 111.94036685092647, "tx_mbps": 0.00011194036685092647}}}, "switches_connected": [1, 2, 3, 4, 5, 6]}
+
+preemption_count: 1
+
+=== ITGDec video === File non trovato: /home/user/Progetto_NCIS/SDN_Network_Slicing/test_results/ditg/video_recv.log
+
+=== ITGDec normal === File non trovato: /home/user/Progetto_NCIS/SDN_Network_Slicing/test_results/ditg/normal_recv.log
+
+
+============================================================
+RIEPILOGO D-ITG
+============================================================
+Flow Normale: UDP porta 800, 500 pkt/s, 1000B, 60s (~4 Mbps offerti)
+Flow Video:   UDP porta 9999, 4000 pkt/s, 1400B, 30s (~44.8 Mbps offerti)
+Link premium: 6 Mbps -> packet loss atteso elevato per il video
